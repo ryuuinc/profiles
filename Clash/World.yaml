@@ -473,3 +473,8 @@ payload:
   - DOMAIN-SUFFIX,licdn.com
   - DOMAIN-SUFFIX,msn.com
   - DOMAIN-SUFFIX,skype.com
+  # > Custome
+  - DOMAIN-SUFFIX,nhentai.net
+  - DOMAIN-SUFFIX,zodgame.xyz
+  - DOMAIN-SUFFIX,hentai-jp.com
+  - DOMAIN-SUFFIX,javgg.net
