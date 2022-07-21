@@ -474,6 +474,7 @@ payload:
   - DOMAIN-SUFFIX,msn.com
   - DOMAIN-SUFFIX,skype.com
   # > Custome
+  - DOMAIN-SUFFIX,gstatic.com
   - DOMAIN-SUFFIX,nhentai.net
   - DOMAIN-SUFFIX,hentai-jp.com
   - DOMAIN-SUFFIX,javgg.net
