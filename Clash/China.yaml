@@ -71,5 +71,4 @@ payload:
   - DOMAIN-SUFFIX,tjupt.org
   - DOMAIN-SUFFIX,totheglory.im
   # > Custome
-  - DOMAIN,api.onedrive.com
   - DOMAIN-SUFFIX,epicgames.com
