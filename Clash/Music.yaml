@@ -2,4 +2,3 @@ payload:
   # > Spotify
   - DOMAIN-SUFFIX,pscdn.co
   - DOMAIN-SUFFIX,scdn.co
-  - DOMAIN-KEYWORD,-spotify-com
