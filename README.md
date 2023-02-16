@@ -8,7 +8,6 @@
 
 - [Koolson/Qure](https://github.com/Koolson/Qure)
 - [KOP-XIAO/QuantumultX](https://github.com/KOP-XIAO/QuantumultX)
-- [DivineEngine/Profiles](https://github.com/DivineEngine/Profiles)
 - [Loyalsoldier/geoip](https://github.com/Loyalsoldier/geoip)
 
 ## License
