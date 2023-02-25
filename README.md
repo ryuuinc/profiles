@@ -6,9 +6,10 @@
 
 ## 感谢
 
+- [Loyalsoldier/clash-rules](https://github.com/Loyalsoldier/clash-rules)
+- [sve1r/Rules-For-Quantumult-X](https://github.com/sve1r/Rules-For-Quantumult-X)
 - [Koolson/Qure](https://github.com/Koolson/Qure)
 - [KOP-XIAO/QuantumultX](https://github.com/KOP-XIAO/QuantumultX)
-- [sve1r/Rules-For-Quantumult-X](https://github.com/sve1r/Rules-For-Quantumult-X)
 - [Loyalsoldier/geoip](https://github.com/Loyalsoldier/geoip)
 
 ## License
