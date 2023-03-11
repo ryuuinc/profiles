@@ -1,9 +1,9 @@
 /**
-☑️ 资源解析器 ©𝐒𝐡𝐚𝐰𝐧  ⟦2023-02-23 16:15⟧
+☑️ 资源解析器 ©𝐒𝐡𝐚𝐰𝐧  ⟦2023-03-10 15:00⟧
 ----------------------------------------------------------
 🛠 发现 𝐁𝐔𝐆 请反馈: https://t.me/Shawn_Parser_Bot
 ⛳️ 关注 🆃🅶 相关频道: https://t.me/QuanX_API
-📖 使用 教程: https://shrtm.nu/4ECS
+📖 使用 教程: https://tinyurl.com/2jyygfom
 🗣 🆃🄷🄰🄽🄺🅂 🆃🄾  @Jamie CHIEN, @M**F**, @c0lada, @Peng-YM, @vinewx, @love4taylor, @shadowdogy
 
 🤖 主要功能:
@@ -112,6 +112,7 @@ resource_parser_url = https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/mas
 let [link0, content0, subinfo] = [$resource.link, $resource.content, $resource.info];
 let version =
   typeof $environment != 'undefined' ? Number($environment.version.split('build')[1]) : 0; // 版本号
+let Perror = 0; //错误类型
 
 const subtag = typeof $resource.tag != 'undefined' ? $resource.tag : '';
 ////// 非 raw 链接的沙雕情形
@@ -683,7 +684,9 @@ function Parser() {
       }
       total = ResourceParse();
     } catch (err) {
-      $notify('❌ 解析出现错误', '⚠️ 请点击通知，发送订阅链接进行反馈', err, bug_link);
+      if (Perror == 0) {
+        $notify('❌ 解析出现错误', '⚠️ 请点击通知，发送订阅链接进行反馈', err, bug_link);
+      }
     }
   } else if (type0 == 'wrong-field') {
     if (version >= 670 && typec != '') {
@@ -720,7 +723,9 @@ if (typeof $resource !== 'undefined' && PProfile == 0) {
   try {
     Profile_Handle();
   } catch (err) {
-    $notify('❌ 解析出现错误', '⚠️ 请点击通知，发送订阅链接进行反馈', err, bug_link);
+    if (Perror == 0) {
+      $notify('❌ 解析出现错误', '⚠️ 请点击通知，发送订阅链接进行反馈', err, bug_link);
+    }
   }
   openlink = { 'open-url': ADDres };
   $notify(
@@ -774,9 +779,10 @@ function ResourceParse() {
     total = Subs2QX(isQuanX(content0).join('\n'), Pudp0, Ptfo0, Pcert0, PTls13);
   } else if (type0 == 'sgmodule') {
     // surge module 模块/含 url-regex 的 rule-set
+    //2023-03-06 考虑模块重写与quanx类型重写的混搭
     flag = 2;
-    total = SGMD2QX(content0); // 转换
-    total = Rewrite_Filter(total, Pin0, Pout0, Preg, Pregout); // 筛选过滤
+    //total = SGMD2QX(content0) // 转换
+    total = Rewrite_Filter(isQuanXRewrite(content0.split('\n')), Pin0, Pout0, Preg, Pregout); //Rewrite_Filter(total, Pin0, Pout0,Preg,Pregout); // 筛选过滤
     if (Preplace) {
       total = ReplaceReg(total, Preplace);
     }
@@ -952,12 +958,14 @@ function ResourceParse() {
         $done({ content: total });
       }
     } else {
-      $notify(
-        '❓❓ 友情提示 ➟ ' + '⟦' + subtag + '⟧',
-        '⚠️⚠️ 解析后无有效内容',
-        '🚥🚥 请自行检查相关参数, 或者点击通知跳转并发送链接反馈',
-        bug_link
-      );
+      if (Perror == 0) {
+        $notify(
+          '❓❓ 友情提示 ➟ ' + '⟦' + subtag + '⟧',
+          '⚠️⚠️ 解析后无有效内容',
+          '🚥🚥 请自行检查相关参数, 或者点击通知跳转并发送链接反馈',
+          bug_link
+        );
+      }
       total = errornode;
       $done({ content: errornode });
     }
@@ -1779,7 +1787,7 @@ function SCP2QX(subs) {
   for (var i = 0; i < subs.length; i++) {
     try {
       if (subs[i].slice(0, 8) == 'hostname') {
-        hn = subs[i].replace(/\%.*\%/g, '');
+        hn = subs[i].replace(/\%.*\%/g, '').replace(/\:\d*/g, '');
         nrw.push(hn);
       }
       var SC = ['type=', '.js', 'pattern=', 'script-path='];
@@ -2796,6 +2804,7 @@ function VR2QX(subs, Pudp, Ptfo, Pcert0, PTls13) {
     host = host != '{}' && host ? 'obfs-host=' + host + ', ' : '';
     obfs = obfs + host;
   } else if (obfs == 'grpc') {
+    Perror = 1; // 不需要反馈的类型
     $notify('⚠️ Quantumult X 暂不支持 grpc 类型 vmess节点，已忽略此条', '', subs);
     pdrop = 1;
   }
@@ -2845,9 +2854,11 @@ function V2QX(subs, Pudp, Ptfo, Pcert0, PTls13) {
   var nss = [];
   if (server != '') {
     ss = JSON.parse(server);
+    if (Pdbg) {
+      $notify('Vmess-URI', '', JSON.stringify(ss));
+    }
     ip = 'vmess=' + ss.add + ':' + ss.port;
     pwd = 'password=' + ss.id;
-
     mtd = 'method=aes-128-gcm';
     try {
       tag = 'tag=' + decodeURIComponent(ss.ps);
@@ -2905,9 +2916,15 @@ function Fobfs(jsonl, Pcert0, PTls13) {
     return obfsi.join(', ');
   } else if (jsonl.net != 'tcp') {
     // 过滤掉 h2/http 等类型
+    Perror = 1;
     $notify('⚠️ Quantumult X 不支持该类型节点', 'vmess + ' + jsonl.net, JSON.stringify(jsonl));
     return 'NOT-SUPPORTTED';
-  } else if (jsonl.net == 'tcp' && jsonl.type != 'none' && jsonl.type != '') {
+  } else if (
+    jsonl.net == 'tcp' &&
+    jsonl.type != 'none' &&
+    jsonl.type != '' &&
+    jsonl.type != 'vmess'
+  ) {
     return 'NOT-SUPPORTTED';
   } else {
     return '';
@@ -3335,12 +3352,14 @@ function QXFix(cntf) {
     //$notify("tag-fix","Look","cntf:\n"+cntf+"\nhd:\n"+hd+"\ntag:\n"+tag+"\ntail:\n"+tail+"\ncnti: \n"+cnti +"\n\ncntii: \n"+cntii)
     return cntii;
   } catch (err) {
-    $notify(
-      '❌ 解析出现错误,已忽略该条目',
-      '⚠️ 请点击通知，发送订阅链接进行反馈',
-      cntf + '\n' + err,
-      bug_link
-    );
+    if (Perror == 0) {
+      $notify(
+        '❌ 解析出现错误,已忽略该条目',
+        '⚠️ 请点击通知，发送订阅链接进行反馈',
+        cntf + '\n' + err,
+        bug_link
+      );
+    }
   }
   return '';
 }
@@ -3384,7 +3403,6 @@ function isQuanXRewrite(content) {
     'force-http',
     'ip-asn'
   ];
-
   for (var i = 0; i < cnt.length; i++) {
     if (cnt[i]) {
       var cnti = cnt[i].trim();
@@ -3401,15 +3419,18 @@ function isQuanXRewrite(content) {
       ) {
         cnti = SGMD2QX(cnti)[0] ? SGMD2QX(cnti)[0] : '';
         //console.log("sss",cnti)
+      } else if (cnti.indexOf(' data=') != -1) {
+        cnti = SGMD2QX('[Map Local]\n' + cnti)[0] ? SGMD2QX('[Map Local]\n' + cnti)[0] : '';
+        //cnti=cnti.replace(/ /g, "").split("data=")[0] + " url " + "reject-dict"
       } else if (
         cnti.indexOf('URL-REGEX') != -1 ||
         cnti.indexOf(' header') != -1 ||
         cnti.replace(/ /g, '').indexOf('hostname=') != -1
       ) {
         cnti = SGMD2QX(cnti)[0] ? SGMD2QX(cnti)[0] : '';
-      } else if (cnti.indexOf(' data=') != -1) {
-        cnti = cnti.replace(/ /g, '').split('data=')[0] + ' url ' + 'reject-dict';
-      } else if (cnti.indexOf(' url ') != -1) {
+      } else if (cnti.indexOf(' url ') != -1 && cnti.indexOf(' simple-response ') == -1) {
+        // 2023-03-09 去掉 quan类型的 simple- response
+        cnti = cnti.replace('^http', 'http'); // 去掉 ^ 以去重
         cnti = cnti.split(' ')[1] == 'url' ? cnti : '';
       } else if (cnti.indexOf(' url-and-header ') != -1) {
         // url-and-header : ^https:xxx.com header-content url-and-header type-rule content
