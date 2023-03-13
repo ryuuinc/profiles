@@ -6,7 +6,7 @@
 
 ## 感谢
 
-- [DivineEngine/Profiles](https://github.com/DivineEngine/Profiles/tree/master)
+- [ACL4SSR/ACL4SSR](https://github.com/ACL4SSR/ACL4SSR/tree/master)
 - [KOP-XIAO/QuantumultX](https://github.com/KOP-XIAO/QuantumultX)
 
 ## License
