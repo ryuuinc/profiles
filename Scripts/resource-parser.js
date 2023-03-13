@@ -1,5 +1,5 @@
 /**
-☑️ 资源解析器 ©𝐒𝐡𝐚𝐰𝐧  ⟦2023-03-10 15:00⟧
+☑️ 资源解析器 ©𝐒𝐡𝐚𝐰𝐧  ⟦2023-03-13 16:00⟧
 ----------------------------------------------------------
 🛠 发现 𝐁𝐔𝐆 请反馈: https://t.me/Shawn_Parser_Bot
 ⛳️ 关注 🆃🅶 相关频道: https://t.me/QuanX_API
@@ -2516,9 +2516,20 @@ function Subs2QX(subs, Pudp, Ptfo, Pcert0, PTls13) {
             node = HPS2QX(list0[i], Ptfo, Pcert0, PTls13);
             node = tag0 != '' ? URI_TAG(node, tag0) : node;
           } else {
-            // b64 类型
-            var listh = Base64.decode(listi.split(type + '://')[1].split('#')[0]);
-            listh = type + '://' + listh + '#' + listi.split(type + '://')[1].split('#')[1];
+            // b64 类型 http/https
+            var listh = Base64.decode(
+              listi
+                .split(type + '://')[1]
+                .split('#')[0]
+                .split('?')[0]
+            );
+            listh = list0[i].replace(
+              listi
+                .split(type + '://')[1]
+                .split('#')[0]
+                .split('?')[0],
+              listh
+            ); //type+"://" + listh + "#" + listi.split(type+"://")[1].split("#")[1]
             node = HPS2QX(listh, Ptfo, Pcert0, PTls13);
             node = tag0 != '' ? URI_TAG(node, tag0) : node;
           }
@@ -2671,17 +2682,21 @@ function HPS2QX(subs, Ptfo, Pcert0, PTls13) {
   var nss = [];
   if (server != '') {
     if (server.indexOf('@') != -1) {
-      var ipport = 'http=' + server.split('@')[1].split('#')[0].split('/')[0];
+      var ipport = 'http=' + server.split('@')[1].split('#')[0].split('/')[0].split('?')[0];
       var uname = 'username=' + server.split(':')[0];
       var pwd = 'password=' + server.split('@')[0].split(':')[1];
     } else {
       var ipport =
         server.split('#')[0].indexOf(':') == -1
-          ? 'http=' + Base64.decode(server.split('#')[0])
-          : 'http=' + server.split('#')[0]; // https://b64(ipport)
+          ? 'http=' + Base64.decode(server.split('#')[0].split('?')[0])
+          : 'http=' + server.split('#')[0].split('?')[0]; // https://b64(ipport)
     }
     var tag = 'tag=' + decodeURIComponent(server.split('#')[1]);
     var tls = type == 'https' ? 'over-tls=true' : '';
+    var thost =
+      subs.indexOf('peer=') != -1
+        ? 'tls-host=' + subs.split('peer=')[1].split('#')[0].split('&')[0]
+        : ''; // 存在peers参数时 https://b64(ipport)?peer=xxx#server-remarks
     var cert = Pcert0 != 0 ? 'tls-verification=true' : 'tls-verification=false';
     var tfo = Ptfo == 1 ? 'fast-open=true' : 'fast-open=false';
     var tls13 = PTls13 == 1 ? 'tls13=true' : 'tls13=false';
@@ -2689,7 +2704,7 @@ function HPS2QX(subs, Ptfo, Pcert0, PTls13) {
       cert = '';
       tls13 = '';
     }
-    nss.push(ipport, uname, pwd, tls, cert, tfo, tls13, tag);
+    nss.push(ipport, uname, pwd, tls, thost, cert, tfo, tls13, tag);
   }
   var QX = nss.filter(Boolean).join(',');
   return QX;
@@ -2803,9 +2818,11 @@ function VR2QX(subs, Pudp, Ptfo, Pcert0, PTls13) {
     }
     host = host != '{}' && host ? 'obfs-host=' + host + ', ' : '';
     obfs = obfs + host;
-  } else if (obfs == 'grpc') {
+  } else if (obfs == 'grpc' || obfs == 'h2') {
     Perror = 1; // 不需要反馈的类型
-    $notify('⚠️ Quantumult X 暂不支持 grpc 类型 vmess节点，已忽略此条', '', subs);
+    if (Pntf0 != 0) {
+      $notify('⚠️ Quantumult X 暂不支持该类型节点', '已忽略以下 grpc|h2 vmess 节点', subs);
+    }
     pdrop = 1;
   }
   if (obfs.indexOf('obfs=over-tls') != -1 || obfs.indexOf('obfs=wss') != -1) {
@@ -3428,7 +3445,11 @@ function isQuanXRewrite(content) {
         cnti.replace(/ /g, '').indexOf('hostname=') != -1
       ) {
         cnti = SGMD2QX(cnti)[0] ? SGMD2QX(cnti)[0] : '';
-      } else if (cnti.indexOf(' url ') != -1 && cnti.indexOf(' simple-response ') == -1) {
+      } else if (
+        cnti.indexOf(' url ') != -1 &&
+        cnti.indexOf(' simple-response ') == -1 &&
+        cnti.indexOf(' url = ') == -1
+      ) {
         // 2023-03-09 去掉 quan类型的 simple- response
         cnti = cnti.replace('^http', 'http'); // 去掉 ^ 以去重
         cnti = cnti.split(' ')[1] == 'url' ? cnti : '';
