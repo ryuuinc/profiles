@@ -30,7 +30,7 @@
 
 | 文件名             | 链接                                                                                     |
 | ------------------ | ---------------------------------------------------------------------------------------- |
-| geoip.dat          | https://raw.githubusercontent.com/Loyalsoldier/geoip/release/geoip.dat                   |
+| Country.mmdb       | https://raw.githubusercontent.com/Loyalsoldier/geoip/release/Country.mmdb                |
 | resource-parser.js | https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/master/Scripts/resource-parser.js |
 
 ## 感谢
