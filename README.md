@@ -4,7 +4,7 @@
 
 ## 介绍
 
-用于 `Clash` 和 `Quantumult X` 的配置文件
+用于 `Clash`、`Quantumult`、`Shadowrocket` 等软件的规则碎片和一些工具
 
 ## 在线地址（URL）
 
