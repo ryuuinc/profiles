@@ -7,7 +7,6 @@
 ## Providers
 
 - [Apple.yaml](https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Apple.yaml)
-- [ChinaCompanyIp.yaml](https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaCompanyIp.yaml)
 - [ChinaDomain.yaml](https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaDomain.yaml)
 - [ChinaMedia.yaml](https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaMedia.yaml)
 - [GoogleCN.yaml](https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/GoogleCN.yaml)
@@ -23,7 +22,6 @@
 ## Rulesets
 
 - [Apple.list](https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Apple.list)
-- [ChinaCompanyIp.list](https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaCompanyIp.list)
 - [ChinaDomain.list](https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaDomain.list)
 - [ChinaMedia.list](https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaMedia.list)
 - [GoogleCN.list](https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/GoogleCN.list)
