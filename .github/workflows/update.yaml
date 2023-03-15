@@ -118,7 +118,7 @@ jobs:
       - name: Move files to publish directory
         run: |
           mkdir -p publish
-          cp *.txt ./publish/
+          cp *.list *.yaml ./publish/
 
       - name: Release and upload assets
         uses: softprops/action-gh-release@v1
