@@ -1,43 +1,53 @@
 # profiles
 
+[![Build Status](https://github.com/ryuuinc/profiles/workflows/Update/badge.svg)](https://github.com/ryuuinc/profiles/actions)
+
 ## 介绍
 
 用于 `Clash` 和 `Quantumult X` 的配置文件
 
-## Providers
+## 在线地址（URL）
 
-- [Apple.yaml](https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Apple.yaml)
-- [ChinaDomain.yaml](https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaDomain.yaml)
-- [ChinaMedia.yaml](https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaMedia.yaml)
-- [GoogleCN.yaml](https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/GoogleCN.yaml)
-- [GoogleFCM.yaml](https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/GoogleFCM.yaml)
-- [LocalAreaNetwork.yaml](https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/LocalAreaNetwork.yaml)
-- [Microsoft.yaml](https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Microsoft.yaml)
-- [ProxyLite.yaml](https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ProxyLite.yaml)
-- [ProxyMedia.yaml](https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ProxyMedia.yaml)
-- [SteamCN.yaml](https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/SteamCN.yaml)
-- [Telegram.yaml](https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Telegram.yaml)
-- [UnBan.yaml](https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/UnBan.yaml)
-
-## Rulesets
-
-- [Apple.list](https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Apple.list)
-- [ChinaDomain.list](https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaDomain.list)
-- [ChinaMedia.list](https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaMedia.list)
-- [GoogleCN.list](https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/GoogleCN.list)
-- [GoogleFCM.list](https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/GoogleFCM.list)
-- [LocalAreaNetwork.list](https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/LocalAreaNetwork.list)
-- [Microsoft.list](https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Microsoft.list)
-- [ProxyLite.list](https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ProxyLite.list)
-- [ProxyMedia.list](https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ProxyMedia.list)
-- [SteamCN.list](https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/SteamCN.list)
-- [Telegram.list](https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Telegram.list)
-- [UnBan.list](https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/UnBan.list)
-
-## Tool
-
-- [Country.mmdb](https://raw.githubusercontent.com/Loyalsoldier/geoip/release/Country.mmdb)
-- [resource-parser.js](https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/master/Scripts/resource-parser.js)
+- **Apple**：
+  - [https://raw.githubusercontent.com/ryuuinc/profiles/release/Apple.list](https://raw.githubusercontent.com/ryuuinc/profiles/release/Apple.list)
+  - [https://raw.githubusercontent.com/ryuuinc/profiles/release/Apple.yaml](https://raw.githubusercontent.com/ryuuinc/profiles/release/Apple.yaml)
+- **ChinaDomain**：
+  - [https://raw.githubusercontent.com/ryuuinc/profiles/release/ChinaDomain.list](https://raw.githubusercontent.com/ryuuinc/profiles/release/ChinaDomain.list)
+  - [https://raw.githubusercontent.com/ryuuinc/profiles/release/ChinaDomain.yaml](https://raw.githubusercontent.com/ryuuinc/profiles/release/ChinaDomain.yaml)
+- **ChinaMedia**：
+  - [https://raw.githubusercontent.com/ryuuinc/profiles/release/ChinaMedia.list](https://raw.githubusercontent.com/ryuuinc/profiles/release/ChinaMedia.list)
+  - [https://raw.githubusercontent.com/ryuuinc/profiles/release/ChinaMedia.yaml](https://raw.githubusercontent.com/ryuuinc/profiles/release/ChinaMedia.yaml)
+- **GoogleCN**：
+  - [https://raw.githubusercontent.com/ryuuinc/profiles/release/GoogleCN.list](https://raw.githubusercontent.com/ryuuinc/profiles/release/GoogleCN.list)
+  - [https://raw.githubusercontent.com/ryuuinc/profiles/release/GoogleCN.yaml](https://raw.githubusercontent.com/ryuuinc/profiles/release/GoogleCN.yaml)
+- **GoogleFCM**：
+  - [https://raw.githubusercontent.com/ryuuinc/profiles/release/GoogleFCM.list](https://raw.githubusercontent.com/ryuuinc/profiles/release/GoogleFCM.list)
+  - [https://raw.githubusercontent.com/ryuuinc/profiles/release/GoogleFCM.yaml](https://raw.githubusercontent.com/ryuuinc/profiles/release/GoogleFCM.yaml)
+- **LocalAreaNetwork**：
+  - [https://raw.githubusercontent.com/ryuuinc/profiles/release/LocalAreaNetwork.list](https://raw.githubusercontent.com/ryuuinc/profiles/release/LocalAreaNetwork.list)
+  - [https://raw.githubusercontent.com/ryuuinc/profiles/release/LocalAreaNetwork.yaml](https://raw.githubusercontent.com/ryuuinc/profiles/release/LocalAreaNetwork.yaml)
+- **Microsoft**：
+  - [https://raw.githubusercontent.com/ryuuinc/profiles/release/Microsoft.list](https://raw.githubusercontent.com/ryuuinc/profiles/release/Microsoft.list)
+  - [https://raw.githubusercontent.com/ryuuinc/profiles/release/Microsoft.yaml](https://raw.githubusercontent.com/ryuuinc/profiles/release/Microsoft.yaml)
+- **ProxyLite**：
+  - [https://raw.githubusercontent.com/ryuuinc/profiles/release/ProxyLite.list](https://raw.githubusercontent.com/ryuuinc/profiles/release/ProxyLite.list)
+  - [https://raw.githubusercontent.com/ryuuinc/profiles/release/ProxyLite.yaml](https://raw.githubusercontent.com/ryuuinc/profiles/release/ProxyLite.yaml)
+- **ProxyMedia**：
+  - [https://raw.githubusercontent.com/ryuuinc/profiles/release/ProxyMedia.list](https://raw.githubusercontent.com/ryuuinc/profiles/release/ProxyMedia.list)
+  - [https://raw.githubusercontent.com/ryuuinc/profiles/release/ProxyMedia.yaml](https://raw.githubusercontent.com/ryuuinc/profiles/release/ProxyMedia.yaml)
+- **SteamCN**：
+  - [https://raw.githubusercontent.com/ryuuinc/profiles/release/SteamCN.list](https://raw.githubusercontent.com/ryuuinc/profiles/release/SteamCN.list)
+  - [https://raw.githubusercontent.com/ryuuinc/profiles/release/SteamCN.yaml](https://raw.githubusercontent.com/ryuuinc/profiles/release/SteamCN.yaml)
+- **Telegram**：
+  - [https://raw.githubusercontent.com/ryuuinc/profiles/release/Telegram.list](https://raw.githubusercontent.com/ryuuinc/profiles/release/Telegram.list)
+  - [https://raw.githubusercontent.com/ryuuinc/profiles/release/Telegram.yaml](https://raw.githubusercontent.com/ryuuinc/profiles/release/Telegram.yaml)
+- **UnBan**：
+  - [https://raw.githubusercontent.com/ryuuinc/profiles/release/UnBan.list](https://raw.githubusercontent.com/ryuuinc/profiles/release/UnBan.list)
+  - [https://raw.githubusercontent.com/ryuuinc/profiles/release/UnBan.yaml](https://raw.githubusercontent.com/ryuuinc/profiles/release/UnBan.yaml)
+- **Country.mmdb**：
+  - [https://raw.githubusercontent.com/ryuuinc/profiles/release/Country.mmdb](https://raw.githubusercontent.com/ryuuinc/profiles/release/Country.mmdb)
+- **resource-parser.js**：
+  - [https://raw.githubusercontent.com/ryuuinc/profiles/release/resource-parser.js](https://raw.githubusercontent.com/ryuuinc/profiles/release/resource-parser.js)
 
 ## 感谢
 
