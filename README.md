@@ -8,45 +8,45 @@
 
 ## 在线地址（URL）
 
-- **Apple**：
+- **苹果公司的所有域名**：
   - [https://raw.githubusercontent.com/ryuuinc/profiles/release/Apple.list](https://raw.githubusercontent.com/ryuuinc/profiles/release/Apple.list)
   - [https://raw.githubusercontent.com/ryuuinc/profiles/release/Apple.yaml](https://raw.githubusercontent.com/ryuuinc/profiles/release/Apple.yaml)
-- **ChinaDomain**：
+- **国内常见域名、直连 CDN 等（很全，常用网址都有）**：
   - [https://raw.githubusercontent.com/ryuuinc/profiles/release/ChinaDomain.list](https://raw.githubusercontent.com/ryuuinc/profiles/release/ChinaDomain.list)
   - [https://raw.githubusercontent.com/ryuuinc/profiles/release/ChinaDomain.yaml](https://raw.githubusercontent.com/ryuuinc/profiles/release/ChinaDomain.yaml)
-- **ChinaMedia**：
+- **中国媒体网址列表**：
   - [https://raw.githubusercontent.com/ryuuinc/profiles/release/ChinaMedia.list](https://raw.githubusercontent.com/ryuuinc/profiles/release/ChinaMedia.list)
   - [https://raw.githubusercontent.com/ryuuinc/profiles/release/ChinaMedia.yaml](https://raw.githubusercontent.com/ryuuinc/profiles/release/ChinaMedia.yaml)
-- **GoogleCN**：
+- **谷歌在中国能直连的网址列表**：
   - [https://raw.githubusercontent.com/ryuuinc/profiles/release/GoogleCN.list](https://raw.githubusercontent.com/ryuuinc/profiles/release/GoogleCN.list)
   - [https://raw.githubusercontent.com/ryuuinc/profiles/release/GoogleCN.yaml](https://raw.githubusercontent.com/ryuuinc/profiles/release/GoogleCN.yaml)
-- **GoogleFCM**：
+- **谷歌推送服务**：
   - [https://raw.githubusercontent.com/ryuuinc/profiles/release/GoogleFCM.list](https://raw.githubusercontent.com/ryuuinc/profiles/release/GoogleFCM.list)
   - [https://raw.githubusercontent.com/ryuuinc/profiles/release/GoogleFCM.yaml](https://raw.githubusercontent.com/ryuuinc/profiles/release/GoogleFCM.yaml)
-- **LocalAreaNetwork**：
+- **本地地址和路由器直连域名等**：
   - [https://raw.githubusercontent.com/ryuuinc/profiles/release/LocalAreaNetwork.list](https://raw.githubusercontent.com/ryuuinc/profiles/release/LocalAreaNetwork.list)
   - [https://raw.githubusercontent.com/ryuuinc/profiles/release/LocalAreaNetwork.yaml](https://raw.githubusercontent.com/ryuuinc/profiles/release/LocalAreaNetwork.yaml)
-- **Microsoft**：
+- **微软公司的所有域名**：
   - [https://raw.githubusercontent.com/ryuuinc/profiles/release/Microsoft.list](https://raw.githubusercontent.com/ryuuinc/profiles/release/Microsoft.list)
   - [https://raw.githubusercontent.com/ryuuinc/profiles/release/Microsoft.yaml](https://raw.githubusercontent.com/ryuuinc/profiles/release/Microsoft.yaml)
-- **ProxyLite**：
+- **比较精简的代理列表，包含常用的，以及被污染的域名**：
   - [https://raw.githubusercontent.com/ryuuinc/profiles/release/ProxyLite.list](https://raw.githubusercontent.com/ryuuinc/profiles/release/ProxyLite.list)
   - [https://raw.githubusercontent.com/ryuuinc/profiles/release/ProxyLite.yaml](https://raw.githubusercontent.com/ryuuinc/profiles/release/ProxyLite.yaml)
-- **ProxyMedia**：
+- **国外媒体网址列表**：
   - [https://raw.githubusercontent.com/ryuuinc/profiles/release/ProxyMedia.list](https://raw.githubusercontent.com/ryuuinc/profiles/release/ProxyMedia.list)
   - [https://raw.githubusercontent.com/ryuuinc/profiles/release/ProxyMedia.yaml](https://raw.githubusercontent.com/ryuuinc/profiles/release/ProxyMedia.yaml)
-- **SteamCN**：
+- **Steam 直连网址列表**：
   - [https://raw.githubusercontent.com/ryuuinc/profiles/release/SteamCN.list](https://raw.githubusercontent.com/ryuuinc/profiles/release/SteamCN.list)
   - [https://raw.githubusercontent.com/ryuuinc/profiles/release/SteamCN.yaml](https://raw.githubusercontent.com/ryuuinc/profiles/release/SteamCN.yaml)
-- **Telegram**：
+- **Telegram 的所有域名**：
   - [https://raw.githubusercontent.com/ryuuinc/profiles/release/Telegram.list](https://raw.githubusercontent.com/ryuuinc/profiles/release/Telegram.list)
   - [https://raw.githubusercontent.com/ryuuinc/profiles/release/Telegram.yaml](https://raw.githubusercontent.com/ryuuinc/profiles/release/Telegram.yaml)
-- **UnBan**：
+- **不应该被拒绝的网址列表**：
   - [https://raw.githubusercontent.com/ryuuinc/profiles/release/UnBan.list](https://raw.githubusercontent.com/ryuuinc/profiles/release/UnBan.list)
   - [https://raw.githubusercontent.com/ryuuinc/profiles/release/UnBan.yaml](https://raw.githubusercontent.com/ryuuinc/profiles/release/UnBan.yaml)
-- **Country.mmdb**：
+- **更加好用的 GeoIP**：
   - [https://raw.githubusercontent.com/ryuuinc/profiles/release/Country.mmdb](https://raw.githubusercontent.com/ryuuinc/profiles/release/Country.mmdb)
-- **resource-parser.js**：
+- **Quantumult X 资源解析器**：
   - [https://raw.githubusercontent.com/ryuuinc/profiles/release/resource-parser.js](https://raw.githubusercontent.com/ryuuinc/profiles/release/resource-parser.js)
 
 ## 感谢
