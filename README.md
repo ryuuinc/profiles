@@ -4,7 +4,7 @@
 
 ## 介绍
 
-用于 `Clash`、`Quantumult`、`Shadowrocket` 等软件的规则碎片和一些工具
+每天 9 点自动更新用于 `Clash`、`Quantumult`、`Shadowrocket` 等软件的规则碎片和一些工具
 
 ## 在线地址（URL）
 
