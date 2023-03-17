@@ -49,6 +49,10 @@
 - **Quantumult X 资源解析器**：
   - [https://raw.githubusercontent.com/ryuuinc/profiles/release/resource-parser.js](https://raw.githubusercontent.com/ryuuinc/profiles/release/resource-parser.js)
 
+## 部署
+
+部署时需要在 `Actions secrets` 中添加 `RELEASE_TOKEN` 作为环境变量：
+
 ## 感谢
 
 - [ACL4SSR/ACL4SSR](https://github.com/ACL4SSR/ACL4SSR/tree/master)
