@@ -4,7 +4,7 @@
 
 ## 介绍
 
-每天 9 点自动更新用于 `Clash`、`Quantumult`、`Shadowrocket` 等软件的规则碎片和一些工具
+每天 10 点自动更新用于 `Clash`、`Quantumult`、`Shadowrocket` 等软件的规则碎片和一些工具
 
 ## 在线地址（URL）
 
@@ -17,21 +17,21 @@
 - **中国媒体网址列表**：
   - [https://raw.githubusercontent.com/ryuuinc/profiles/release/ChinaMedia.list](https://raw.githubusercontent.com/ryuuinc/profiles/release/ChinaMedia.list)
   - [https://raw.githubusercontent.com/ryuuinc/profiles/release/ChinaMedia.yaml](https://raw.githubusercontent.com/ryuuinc/profiles/release/ChinaMedia.yaml)
+- **一些下载用的域名**：
+  - [https://raw.githubusercontent.com/ryuuinc/profiles/release/Download.list](https://raw.githubusercontent.com/ryuuinc/profiles/release/Download.list)
+  - [https://raw.githubusercontent.com/ryuuinc/profiles/release/Download.yaml](https://raw.githubusercontent.com/ryuuinc/profiles/release/Download.yaml)
 - **谷歌在中国能直连的网址列表**：
   - [https://raw.githubusercontent.com/ryuuinc/profiles/release/GoogleCN.list](https://raw.githubusercontent.com/ryuuinc/profiles/release/GoogleCN.list)
   - [https://raw.githubusercontent.com/ryuuinc/profiles/release/GoogleCN.yaml](https://raw.githubusercontent.com/ryuuinc/profiles/release/GoogleCN.yaml)
-- **谷歌推送服务**：
-  - [https://raw.githubusercontent.com/ryuuinc/profiles/release/GoogleFCM.list](https://raw.githubusercontent.com/ryuuinc/profiles/release/GoogleFCM.list)
-  - [https://raw.githubusercontent.com/ryuuinc/profiles/release/GoogleFCM.yaml](https://raw.githubusercontent.com/ryuuinc/profiles/release/GoogleFCM.yaml)
 - **本地地址和路由器直连域名等**：
   - [https://raw.githubusercontent.com/ryuuinc/profiles/release/LocalAreaNetwork.list](https://raw.githubusercontent.com/ryuuinc/profiles/release/LocalAreaNetwork.list)
   - [https://raw.githubusercontent.com/ryuuinc/profiles/release/LocalAreaNetwork.yaml](https://raw.githubusercontent.com/ryuuinc/profiles/release/LocalAreaNetwork.yaml)
 - **微软公司的所有域名**：
   - [https://raw.githubusercontent.com/ryuuinc/profiles/release/Microsoft.list](https://raw.githubusercontent.com/ryuuinc/profiles/release/Microsoft.list)
   - [https://raw.githubusercontent.com/ryuuinc/profiles/release/Microsoft.yaml](https://raw.githubusercontent.com/ryuuinc/profiles/release/Microsoft.yaml)
-- **比较精简的代理列表，包含常用的，以及被污染的域名**：
-  - [https://raw.githubusercontent.com/ryuuinc/profiles/release/ProxyLite.list](https://raw.githubusercontent.com/ryuuinc/profiles/release/ProxyLite.list)
-  - [https://raw.githubusercontent.com/ryuuinc/profiles/release/ProxyLite.yaml](https://raw.githubusercontent.com/ryuuinc/profiles/release/ProxyLite.yaml)
+- **GFW 的全量列表**：
+  - [https://raw.githubusercontent.com/ryuuinc/profiles/release/ProxyGFWlist.list](https://raw.githubusercontent.com/ryuuinc/profiles/release/ProxyGFWlist.list)
+  - [https://raw.githubusercontent.com/ryuuinc/profiles/release/ProxyGFWlist.yaml](https://raw.githubusercontent.com/ryuuinc/profiles/release/ProxyGFWlist.yaml)
 - **国外媒体网址列表**：
   - [https://raw.githubusercontent.com/ryuuinc/profiles/release/ProxyMedia.list](https://raw.githubusercontent.com/ryuuinc/profiles/release/ProxyMedia.list)
   - [https://raw.githubusercontent.com/ryuuinc/profiles/release/ProxyMedia.yaml](https://raw.githubusercontent.com/ryuuinc/profiles/release/ProxyMedia.yaml)
