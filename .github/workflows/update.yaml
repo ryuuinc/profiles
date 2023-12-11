@@ -19,6 +19,7 @@ jobs:
         run: |
           echo "RELEASE_NAME=Released on $(date +%Y%m%d%H%M)" >> $GITHUB_ENV
           echo "TAG_NAME=$(date +%Y%m%d%H%M)" >> $GITHUB_ENV
+          echo "Custome_BanAD=https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanAD.list" >> $GITHUB_ENV
           echo "Custome_Apple=https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Apple.list" >> $GITHUB_ENV
           echo "Custome_ChinaDomain=https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaDomain.list" >> $GITHUB_ENV
           echo "Custome_ChinaMedia=https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaMedia.list" >> $GITHUB_ENV
@@ -34,6 +35,13 @@ jobs:
           echo "Custome_GeoIP=https://raw.githubusercontent.com/Loyalsoldier/geoip/release/Country.mmdb" >> $GITHUB_ENV
           echo "Custome_Parser=https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/master/Scripts/resource-parser.js" >> $GITHUB_ENV
         shell: bash
+
+      - name: Generate BanAD file
+        run: |
+          curl -sS ${Custome_BanAD} | grep -v "^[#\s]" | grep -v "^[[:space:]]*$" > Custome_BanAD.txt
+          cat Custome_BanAD.txt | grep -v "^PROCESS" > BanAD.list
+          echo "payload:" > BanAD.yaml
+          cat Custome_BanAD.txt | grep -v "^USER\|^URL" | awk '{printf "  - %s\n", $0}' >> BanAD.yaml
 
       - name: Generate Apple file
         run: |

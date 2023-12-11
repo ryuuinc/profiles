@@ -8,6 +8,9 @@
 
 ## 在线地址（URL）
 
+- **只包含常见广告关键字、广告联盟。无副作用，放心使用**：
+  - [https://raw.githubusercontent.com/ryuuinc/profiles/release/BanAD.list](https://raw.githubusercontent.com/ryuuinc/profiles/release/BanAD.list)
+  - [https://raw.githubusercontent.com/ryuuinc/profiles/release/BanAD.yaml](https://raw.githubusercontent.com/ryuuinc/profiles/release/BanAD.yaml)
 - **苹果公司的所有域名**：
   - [https://raw.githubusercontent.com/ryuuinc/profiles/release/Apple.list](https://raw.githubusercontent.com/ryuuinc/profiles/release/Apple.list)
   - [https://raw.githubusercontent.com/ryuuinc/profiles/release/Apple.yaml](https://raw.githubusercontent.com/ryuuinc/profiles/release/Apple.yaml)
