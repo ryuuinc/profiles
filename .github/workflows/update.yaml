@@ -19,64 +19,14 @@ jobs:
         run: |
           echo "RELEASE_NAME=Released on $(date +%Y%m%d%H%M)" >> $GITHUB_ENV
           echo "TAG_NAME=$(date +%Y%m%d%H%M)" >> $GITHUB_ENV
-          echo "Custome_BanAD=https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanAD.list" >> $GITHUB_ENV
-          echo "Custome_Apple=https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Apple.list" >> $GITHUB_ENV
-          echo "Custome_ChinaDomain=https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaDomain.list" >> $GITHUB_ENV
-          echo "Custome_ChinaMedia=https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaMedia.list" >> $GITHUB_ENV
-          echo "Custome_Download=https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Download.list" >> $GITHUB_ENV
-          echo "Custome_GoogleCN=https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/GoogleCN.list" >> $GITHUB_ENV
           echo "Custome_LocalAreaNetwork=https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/LocalAreaNetwork.list" >> $GITHUB_ENV
-          echo "Custome_Microsoft=https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Microsoft.list" >> $GITHUB_ENV
+          echo "Custome_Apple=https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Apple.list" >> $GITHUB_ENV
+          echo "Custome_ChinaMedia=https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaMedia.list" >> $GITHUB_ENV
+          echo "Custome_ChinaDomain=https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaDomain.list" >> $GITHUB_ENV
           echo "Custome_ProxyGFWlist=https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ProxyGFWlist.list" >> $GITHUB_ENV
-          echo "Custome_ProxyMedia=https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ProxyMedia.list" >> $GITHUB_ENV
-          echo "Custome_SteamCN=https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/SteamCN.list" >> $GITHUB_ENV
-          echo "Custome_Telegram=https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Telegram.list" >> $GITHUB_ENV
-          echo "Custome_UnBan=https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/UnBan.list" >> $GITHUB_ENV
           echo "Custome_GeoIP=https://raw.githubusercontent.com/Loyalsoldier/geoip/release/Country.mmdb" >> $GITHUB_ENV
           echo "Custome_Parser=https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/master/Scripts/resource-parser.js" >> $GITHUB_ENV
         shell: bash
-
-      - name: Generate BanAD file
-        run: |
-          curl -sS ${Custome_BanAD} | grep -v "^[#\s]" | grep -v "^[[:space:]]*$" > Custome_BanAD.txt
-          cat Custome_BanAD.txt | grep -v "^PROCESS" > BanAD.list
-          echo "payload:" > BanAD.yaml
-          cat Custome_BanAD.txt | grep -v "^USER\|^URL" | awk '{printf "  - %s\n", $0}' >> BanAD.yaml
-
-      - name: Generate Apple file
-        run: |
-          curl -sS ${Custome_Apple} | grep -v "^[#\s]" | grep -v "^[[:space:]]*$" > Custome_Apple.txt
-          cat Custome_Apple.txt | grep -v "^PROCESS" > Apple.list
-          echo "payload:" > Apple.yaml
-          cat Custome_Apple.txt | grep -v "^USER\|^URL" | awk '{printf "  - %s\n", $0}' >> Apple.yaml
-
-      - name: Generate ChinaDomain file
-        run: |
-          curl -sS ${Custome_ChinaDomain} | grep -v "^[#\s]" | grep -v "^[[:space:]]*$" > Custome_ChinaDomain.txt
-          cat Custome_ChinaDomain.txt | grep -v "^PROCESS" > ChinaDomain.list
-          echo "payload:" > ChinaDomain.yaml
-          cat Custome_ChinaDomain.txt | grep -v "^USER\|^URL" | awk '{printf "  - %s\n", $0}' >> ChinaDomain.yaml
-
-      - name: Generate ChinaMedia file
-        run: |
-          curl -sS ${Custome_ChinaMedia} | grep -v "^[#\s]" | grep -v "^[[:space:]]*$" > Custome_ChinaMedia.txt
-          cat Custome_ChinaMedia.txt | grep -v "^PROCESS" > ChinaMedia.list
-          echo "payload:" > ChinaMedia.yaml
-          cat Custome_ChinaMedia.txt | grep -v "^USER\|^URL" | awk '{printf "  - %s\n", $0}' >> ChinaMedia.yaml
-
-      - name: Generate Download file
-        run: |
-          curl -sS ${Custome_Download} | grep -v "^[#\s]" | grep -v "^[[:space:]]*$" > Custome_Download.txt
-          cat Custome_Download.txt | grep -v "^PROCESS" > Download.list
-          echo "payload:" > Download.yaml
-          cat Custome_Download.txt | grep -v "^USER\|^URL" | awk '{printf "  - %s\n", $0}' >> Download.yaml
-
-      - name: Generate GoogleCN file
-        run: |
-          curl -sS ${Custome_GoogleCN} | grep -v "^[#\s]" | grep -v "^[[:space:]]*$" > Custome_GoogleCN.txt
-          cat Custome_GoogleCN.txt | grep -v "^PROCESS" > GoogleCN.list
-          echo "payload:" > GoogleCN.yaml
-          cat Custome_GoogleCN.txt | grep -v "^USER\|^URL" | awk '{printf "  - %s\n", $0}' >> GoogleCN.yaml
 
       - name: Generate LocalAreaNetwork file
         run: |
@@ -85,12 +35,26 @@ jobs:
           echo "payload:" > LocalAreaNetwork.yaml
           cat Custome_LocalAreaNetwork.txt | grep -v "^USER\|^URL" | awk '{printf "  - %s\n", $0}' >> LocalAreaNetwork.yaml
 
-      - name: Generate Microsoft file
+      - name: Generate Apple file
         run: |
-          curl -sS ${Custome_Microsoft} | grep -v "^[#\s]" | grep -v "^[[:space:]]*$" > Custome_Microsoft.txt
-          cat Custome_Microsoft.txt | grep -v "^PROCESS" > Microsoft.list
-          echo "payload:" > Microsoft.yaml
-          cat Custome_Microsoft.txt | grep -v "^USER\|^URL" | awk '{printf "  - %s\n", $0}' >> Microsoft.yaml
+          curl -sS ${Custome_Apple} | grep -v "^[#\s]" | grep -v "^[[:space:]]*$" > Custome_Apple.txt
+          cat Custome_Apple.txt | grep -v "^PROCESS" > Apple.list
+          echo "payload:" > Apple.yaml
+          cat Custome_Apple.txt | grep -v "^USER\|^URL" | awk '{printf "  - %s\n", $0}' >> Apple.yaml
+
+      - name: Generate ChinaMedia file
+        run: |
+          curl -sS ${Custome_ChinaMedia} | grep -v "^[#\s]" | grep -v "^[[:space:]]*$" > Custome_ChinaMedia.txt
+          cat Custome_ChinaMedia.txt | grep -v "^PROCESS" > ChinaMedia.list
+          echo "payload:" > ChinaMedia.yaml
+          cat Custome_ChinaMedia.txt | grep -v "^USER\|^URL" | awk '{printf "  - %s\n", $0}' >> ChinaMedia.yaml
+
+      - name: Generate ChinaDomain file
+        run: |
+          curl -sS ${Custome_ChinaDomain} | grep -v "^[#\s]" | grep -v "^[[:space:]]*$" > Custome_ChinaDomain.txt
+          cat Custome_ChinaDomain.txt | grep -v "^PROCESS" > ChinaDomain.list
+          echo "payload:" > ChinaDomain.yaml
+          cat Custome_ChinaDomain.txt | grep -v "^USER\|^URL" | awk '{printf "  - %s\n", $0}' >> ChinaDomain.yaml
 
       - name: Generate ProxyGFWlist file
         run: |
@@ -98,34 +62,6 @@ jobs:
           cat Custome_ProxyGFWlist.txt | grep -v "^PROCESS" > ProxyGFWlist.list
           echo "payload:" > ProxyGFWlist.yaml
           cat Custome_ProxyGFWlist.txt | grep -v "^USER\|^URL" | awk '{printf "  - %s\n", $0}' >> ProxyGFWlist.yaml
-
-      - name: Generate ProxyMedia file
-        run: |
-          curl -sS ${Custome_ProxyMedia} | grep -v "^[#\s]" | grep -v "^[[:space:]]*$" > Custome_ProxyMedia.txt
-          cat Custome_ProxyMedia.txt | grep -v "^PROCESS" > ProxyMedia.list
-          echo "payload:" > ProxyMedia.yaml
-          cat Custome_ProxyMedia.txt | grep -v "^USER\|^URL" | awk '{printf "  - %s\n", $0}' >> ProxyMedia.yaml
-
-      - name: Generate Telegram file
-        run: |
-          curl -sS ${Custome_Telegram} | grep -v "^[#\s]" | grep -v "^[[:space:]]*$" > Custome_Telegram.txt
-          cat Custome_Telegram.txt | grep -v "^PROCESS" > Telegram.list
-          echo "payload:" > Telegram.yaml
-          cat Custome_Telegram.txt | grep -v "^USER\|^URL" | awk '{printf "  - %s\n", $0}' >> Telegram.yaml
-
-      - name: Generate UnBan file
-        run: |
-          curl -sS ${Custome_UnBan} | grep -v "^[#\s]" | grep -v "^[[:space:]]*$" > Custome_UnBan.txt
-          cat Custome_UnBan.txt | grep -v "^PROCESS" > UnBan.list
-          echo "payload:" > UnBan.yaml
-          cat Custome_UnBan.txt | grep -v "^USER\|^URL" | awk '{printf "  - %s\n", $0}' >> UnBan.yaml
-
-      - name: Generate SteamCN file
-        run: |
-          curl -sS ${Custome_SteamCN} | grep -v "^[#\s]" | grep -v "^[[:space:]]*$" > Custome_SteamCN.txt
-          cat Custome_SteamCN.txt | grep -v "^PROCESS" > SteamCN.list
-          echo "payload:" > SteamCN.yaml
-          cat Custome_SteamCN.txt | grep -v "^USER\|^URL" | awk '{printf "  - %s\n", $0}' >> SteamCN.yaml
 
       - name: Generate GeoIP file
         run: |
@@ -141,7 +77,7 @@ jobs:
           cp *.list *.yaml Country.mmdb resource-parser.js ./publish/
 
       - name: Release and upload assets
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
           name: ${{ env.RELEASE_NAME }}
           tag_name: ${{ env.TAG_NAME }}
