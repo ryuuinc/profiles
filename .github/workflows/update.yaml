@@ -1,101 +1,101 @@
 name: Update
 
 on:
-    workflow_dispatch:
-    schedule:
-        - cron: '0 1 * * *'
-    push:
-        branches:
-            - master
-        paths-ignore:
-            - '**/README.md'
+  workflow_dispatch:
+  schedule:
+    - cron: '0 1 * * *'
+  push:
+    branches:
+      - master
+    paths-ignore:
+      - '**/README.md'
 
 jobs:
-    build:
-        name: Push
-        runs-on: ubuntu-latest
-        steps:
-            - name: Set variables
-              run: |
-                  echo "RELEASE_NAME=Released on $(date +%Y%m%d%H%M)" >> $GITHUB_ENV
-                  echo "TAG_NAME=$(date +%Y%m%d%H%M)" >> $GITHUB_ENV
-                  echo "Custome_LocalAreaNetwork=https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/LocalAreaNetwork.list" >> $GITHUB_ENV
-                  echo "Custome_Apple=https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Apple.list" >> $GITHUB_ENV
-                  echo "Custome_ChinaMedia=https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaMedia.list" >> $GITHUB_ENV
-                  echo "Custome_ChinaDomain=https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaDomain.list" >> $GITHUB_ENV
-                  echo "Custome_ProxyGFWlist=https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ProxyGFWlist.list" >> $GITHUB_ENV
-                  echo "Custome_GeoIP=https://raw.githubusercontent.com/Loyalsoldier/geoip/release/Country.mmdb" >> $GITHUB_ENV
-                  echo "Custome_Parser=https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/master/Scripts/resource-parser.js" >> $GITHUB_ENV
-              shell: bash
+  build:
+    name: Push
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set variables
+        run: |
+          echo "RELEASE_NAME=Released on $(date +%Y%m%d%H%M)" >> $GITHUB_ENV
+          echo "TAG_NAME=$(date +%Y%m%d%H%M)" >> $GITHUB_ENV
+          echo "Custome_LocalAreaNetwork=https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/LocalAreaNetwork.list" >> $GITHUB_ENV
+          echo "Custome_Apple=https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Apple.list" >> $GITHUB_ENV
+          echo "Custome_ChinaMedia=https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaMedia.list" >> $GITHUB_ENV
+          echo "Custome_ChinaDomain=https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaDomain.list" >> $GITHUB_ENV
+          echo "Custome_ProxyGFWlist=https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ProxyGFWlist.list" >> $GITHUB_ENV
+          echo "Custome_GeoIP=https://raw.githubusercontent.com/Loyalsoldier/geoip/release/Country.mmdb" >> $GITHUB_ENV
+          echo "Custome_Parser=https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/master/Scripts/resource-parser.js" >> $GITHUB_ENV
+        shell: bash
 
-            - name: Generate LocalAreaNetwork file
-              run: |
-                  curl -sS ${Custome_LocalAreaNetwork} | grep -v "^[#\s]" | grep -v "^[[:space:]]*$" > Custome_LocalAreaNetwork.txt
-                  cat Custome_LocalAreaNetwork.txt | grep -v "^PROCESS" > LocalAreaNetwork.list
-                  echo "payload:" > LocalAreaNetwork.yaml
-                  cat Custome_LocalAreaNetwork.txt | grep -v "^USER\|^URL" | awk '{printf "  - %s\n", $0}' >> LocalAreaNetwork.yaml
+      - name: Generate LocalAreaNetwork file
+        run: |
+          curl -sS ${Custome_LocalAreaNetwork} | grep -v "^[#\s]" | grep -v "^[[:space:]]*$" > Custome_LocalAreaNetwork.txt
+          cat Custome_LocalAreaNetwork.txt | grep -v "^PROCESS" > LocalAreaNetwork.list
+          echo "payload:" > LocalAreaNetwork.yaml
+          cat Custome_LocalAreaNetwork.txt | grep -v "^USER\|^URL" | awk '{printf "  - %s\n", $0}' >> LocalAreaNetwork.yaml
 
-            - name: Generate Apple file
-              run: |
-                  curl -sS ${Custome_Apple} | grep -v "^[#\s]" | grep -v "^[[:space:]]*$" > Custome_Apple.txt
-                  cat Custome_Apple.txt | grep -v "^PROCESS" > Apple.list
-                  echo "payload:" > Apple.yaml
-                  cat Custome_Apple.txt | grep -v "^USER\|^URL" | awk '{printf "  - %s\n", $0}' >> Apple.yaml
+      - name: Generate Apple file
+        run: |
+          curl -sS ${Custome_Apple} | grep -v "^[#\s]" | grep -v "^[[:space:]]*$" > Custome_Apple.txt
+          cat Custome_Apple.txt | grep -v "^PROCESS" > Apple.list
+          echo "payload:" > Apple.yaml
+          cat Custome_Apple.txt | grep -v "^USER\|^URL" | awk '{printf "  - %s\n", $0}' >> Apple.yaml
 
-            - name: Generate ChinaMedia file
-              run: |
-                  curl -sS ${Custome_ChinaMedia} | grep -v "^[#\s]" | grep -v "^[[:space:]]*$" > Custome_ChinaMedia.txt
-                  cat Custome_ChinaMedia.txt | grep -v "^PROCESS" > ChinaMedia.list
-                  echo "payload:" > ChinaMedia.yaml
-                  cat Custome_ChinaMedia.txt | grep -v "^USER\|^URL" | awk '{printf "  - %s\n", $0}' >> ChinaMedia.yaml
+      - name: Generate ChinaMedia file
+        run: |
+          curl -sS ${Custome_ChinaMedia} | grep -v "^[#\s]" | grep -v "^[[:space:]]*$" > Custome_ChinaMedia.txt
+          cat Custome_ChinaMedia.txt | grep -v "^PROCESS" > ChinaMedia.list
+          echo "payload:" > ChinaMedia.yaml
+          cat Custome_ChinaMedia.txt | grep -v "^USER\|^URL" | awk '{printf "  - %s\n", $0}' >> ChinaMedia.yaml
 
-            - name: Generate ChinaDomain file
-              run: |
-                  curl -sS ${Custome_ChinaDomain} | grep -v "^[#\s]" | grep -v "^[[:space:]]*$" > Custome_ChinaDomain.txt
-                  cat Custome_ChinaDomain.txt | grep -v "^PROCESS" > ChinaDomain.list
-                  echo "payload:" > ChinaDomain.yaml
-                  cat Custome_ChinaDomain.txt | grep -v "^USER\|^URL" | awk '{printf "  - %s\n", $0}' >> ChinaDomain.yaml
+      - name: Generate ChinaDomain file
+        run: |
+          curl -sS ${Custome_ChinaDomain} | grep -v "^[#\s]" | grep -v "^[[:space:]]*$" > Custome_ChinaDomain.txt
+          cat Custome_ChinaDomain.txt | grep -v "^PROCESS" > ChinaDomain.list
+          echo "payload:" > ChinaDomain.yaml
+          cat Custome_ChinaDomain.txt | grep -v "^USER\|^URL" | awk '{printf "  - %s\n", $0}' >> ChinaDomain.yaml
 
-            - name: Generate ProxyGFWlist file
-              run: |
-                  curl -sS ${Custome_ProxyGFWlist} | grep -v "^[#\s]" | grep -v "^[[:space:]]*$" > Custome_ProxyGFWlist.txt
-                  cat Custome_ProxyGFWlist.txt | grep -v "^PROCESS" > ProxyGFWlist.list
-                  echo "payload:" > ProxyGFWlist.yaml
-                  cat Custome_ProxyGFWlist.txt | grep -v "^USER\|^URL" | awk '{printf "  - %s\n", $0}' >> ProxyGFWlist.yaml
+      - name: Generate ProxyGFWlist file
+        run: |
+          curl -sS ${Custome_ProxyGFWlist} | grep -v "^[#\s]" | grep -v "^[[:space:]]*$" > Custome_ProxyGFWlist.txt
+          cat Custome_ProxyGFWlist.txt | grep -v "^PROCESS" > ProxyGFWlist.list
+          echo "payload:" > ProxyGFWlist.yaml
+          cat Custome_ProxyGFWlist.txt | grep -v "^USER\|^URL" | awk '{printf "  - %s\n", $0}' >> ProxyGFWlist.yaml
 
-            - name: Generate GeoIP file
-              run: |
-                  curl -sSO ${Custome_GeoIP}
+      - name: Generate GeoIP file
+        run: |
+          curl -sSO ${Custome_GeoIP}
 
-            - name: Generate Parser file
-              run: |
-                  curl -sS ${Custome_Parser} > resource-parser.js
+      - name: Generate Parser file
+        run: |
+          curl -sS ${Custome_Parser} > resource-parser.js
 
-            - name: Move files to publish directory
-              run: |
-                  mkdir -p publish
-                  cp *.list *.yaml Country.mmdb resource-parser.js ./publish/
+      - name: Move files to publish directory
+        run: |
+          mkdir -p publish
+          cp *.list *.yaml Country.mmdb resource-parser.js ./publish/
 
-            - name: Release and upload assets
-              uses: softprops/action-gh-release@v2.2.2
-              with:
-                  name: ${{ env.RELEASE_NAME }}
-                  tag_name: ${{ env.TAG_NAME }}
-                  draft: false
-                  prerelease: false
-                  files: |
-                      ./publish/*
-              env:
-                  GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
+      - name: Release and upload assets
+        uses: softprops/action-gh-release@v2.2.2
+        with:
+          name: ${{ env.RELEASE_NAME }}
+          tag_name: ${{ env.TAG_NAME }}
+          draft: false
+          prerelease: false
+          files: |
+            ./publish/*
+        env:
+          GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
 
-            - name: Git push assets to "release" branch
-              run: |
-                  cd publish || exit 1
-                  git init
-                  git config --local user.name "github-actions[bot]"
-                  git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
-                  git checkout -b release
-                  git add -A
-                  git commit -m "${{ env.RELEASE_NAME }}"
-                  git remote add origin "https://${{ github.actor }}:${{ secrets.RELEASE_TOKEN }}@github.com/${{ github.repository }}"
-                  git push -f origin release
+      - name: Git push assets to "release" branch
+        run: |
+          cd publish || exit 1
+          git init
+          git config --local user.name "github-actions[bot]"
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -b release
+          git add -A
+          git commit -m "${{ env.RELEASE_NAME }}"
+          git remote add origin "https://${{ github.actor }}:${{ secrets.RELEASE_TOKEN }}@github.com/${{ github.repository }}"
+          git push -f origin release
